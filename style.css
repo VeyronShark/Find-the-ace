@@ -1,0 +1,103 @@
+/* UTILITY CLASSES */
+span.hover-red {
+  transition: all 0.2s ease;
+  display: inline-block;
+  margin: 0;
+}
+span.hover-red:hover{
+  color: red;
+  transform: scale(1.4);
+}
+/* END OF UTILITY CLASSES */
+
+
+
+/* NORMAL STYLING */
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 6vh;
+  align-items: center;
+  height: 100vh;
+  justify-content: flex-start;
+  background-color: silver;
+  font-family: monospace;
+}
+header h1 {
+  font-size: 5rem;
+  text-transform: uppercase;
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.card-container {
+  width: 300px;
+  height: 400px;
+}
+.card-container:hover .card{
+  transform: scale(1.1);
+}
+.card-container.clicked .card{
+  transform: scale(1.1) rotateY(.5turn);
+}
+.card {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+}
+.front, .back {
+  height: 100%;
+  width: 100%;
+  background-size: 104% 104%;
+  border-radius: 25px;
+  background-position: center;
+  position: absolute;
+  backface-visibility: hidden;
+}
+.front {
+  transform: rotateY(.5turn);
+}
+.back {
+  background-image: url('./images/card-back-Blue.png');
+}
+
+.game-msg-box {
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+/* END OF NORMAL STYLING */
+
+
+
+/* MEDIA QUERIES */
+@media (max-width: 1285px){
+  .cards-grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 980px){
+  .cards-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 645px){
+  header h1{
+    font-size: 3rem;
+  }
+  .card-container {
+    width: 150px;
+    height: 199px;
+  }
+  .front, .back{
+    border-radius: 10px;
+  }
+}
+/* END OF MEDIA QUERIES */
